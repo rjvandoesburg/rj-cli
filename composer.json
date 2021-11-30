@@ -40,7 +40,7 @@
     "bin": ["application"],
     "scripts": {
         "post-install-cmd": [
-            "pre-commit install || true"
+            "pre-commit install > /dev/null 2>&1 || true"
         ],
         "cs": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php",
         "cs_ci": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php -v --dry-run --using-cache=no",
