@@ -13,7 +13,7 @@ abstract class BaseCommand extends Command
      *
      * @var array
      */
-    protected static $traitInitializers = [];
+    protected static array $traitInitializers = [];
 
     public function __construct()
     {

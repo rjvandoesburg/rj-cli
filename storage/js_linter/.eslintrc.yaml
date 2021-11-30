@@ -1,0 +1,28 @@
+extends:
+  - airbnb-base
+
+env:
+  browser: true
+  amd: true
+  es6: true
+
+parserOptions:
+  ecmaVersion: 6
+
+globals: {}
+
+rules:
+  indent:
+    - error
+    - 4
+
+  no-console:
+    - error
+    - allow:
+      - warn
+      - error
+
+  quote-props:
+    - error
+    - consistent-as-needed
+    - keywords: true

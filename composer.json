@@ -13,7 +13,8 @@
     ],
     "require": {
         "php": "^8.0",
-        "laravel-zero/framework": "^8.8"
+        "laravel-zero/framework": "^8.8",
+        "laravel/installer": "^4.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.3",
@@ -37,7 +38,7 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "bin": ["application"],
+    "bin": ["rj-cli"],
     "scripts": {
         "post-install-cmd": [
             "pre-commit install > /dev/null 2>&1 || true"

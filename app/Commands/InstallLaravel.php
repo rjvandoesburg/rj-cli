@@ -30,9 +30,9 @@ class InstallLaravel extends BaseCommand
      */
     protected $description = 'Command description';
 
-    protected $currentWorkingDirectory;
+    protected string $currentWorkingDirectory;
 
-    protected $projectPath;
+    protected string $projectPath;
 
     /**
      * Execute the console command.

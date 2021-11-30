@@ -32,7 +32,7 @@ class InstallDefaultPackages extends BaseCommand
      */
     protected $description = 'Install default composer packages';
 
-    protected $packages = [
+    protected array $packages = [
         'barryvdh/laravel-debugbar:"*"',
         'barryvdh/laravel-ide-helper:"*"',
         'beyondcode/laravel-dump-server',

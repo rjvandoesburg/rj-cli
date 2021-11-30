@@ -18,9 +18,9 @@ class NewProject extends BaseCommand
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Create a new project';
 
-    protected $projectName;
+    protected string $projectName;
 
     /**
      * Execute the console command.

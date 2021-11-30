@@ -1,0 +1,75 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+    - repo: local
+      hooks:
+          - id: validate-composer-json
+            name: Validate Composer JSON
+            entry: "composer validate"
+            language: system
+            files: composer\.json
+
+          - id: check-php-debug
+            name: Check php debug statements
+            language: pygrep
+            entry: '\b(print_r|dump|var_dump|die|dd)\s*\('
+            files: .*\.(php|phtml)$
+
+          - id: check-js-debug
+            name: Check javascript debug statements
+            language: pygrep
+            entry: '\b(console\s*\.\s*debug|console\s*\.\s*log)\s*\('
+            files: resources/js/.*\.(js|html|vue)$
+
+          - id: check-view-with-with
+            name: Check for view()->with
+            language: pygrep
+            entry: 'view\([^\)]*?\)\s*->with\('
+            files: .*\.php$
+
+          - id: php-cs
+            name: Run Code Sniffer fixer
+            language: system
+            entry: 'composer cs -- --path-mode=intersection'
+
+          - id: js-lint
+            name: Run ESLint fixer
+            language: system
+            entry: './node_modules/.bin/eslint --fix'
+            files: resources/js/.*\.(js)$
+
+          - id: phpunit
+            name: Run all tests
+            language: system
+            entry: 'composer test'
+            always_run: true
+            pass_filenames: false
+            verbose: true
+            stages: [ push ]
+
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v2.1.0
+      hooks:
+          - id: trailing-whitespace
+          - id: end-of-file-fixer
+          - id: check-added-large-files
+          - id: check-yaml
+          - id: check-xml
+          - id: check-merge-conflict
+          - id: check-json
+            exclude: ^.vscode/.+$
+
+    - repo: https://github.com/digitalpulp/pre-commit-php.git
+      rev: 1.3.0
+      hooks:
+          - id: php-lint
+          - id: php-lint-all
+
+    - repo: https://github.com/igorshubovych/markdownlint-cli
+      rev: v0.27.1
+      hooks:
+          - id: markdownlint
+            name: Lint Markdown files
+
+exclude: public/.*
+default_stages: [commit]
