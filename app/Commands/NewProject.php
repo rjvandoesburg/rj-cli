@@ -36,6 +36,7 @@ class NewProject extends BaseCommand
             InstallPreCommit::class,
             InstallTailwindCss::class,
             InstallTestSuite::class,
+            AddDefaultLayout::class,
         ];
 
         foreach ($commands as $command) {
