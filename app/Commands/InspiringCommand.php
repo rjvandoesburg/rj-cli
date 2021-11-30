@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
@@ -26,7 +28,7 @@ class InspiringCommand extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(): mixed
     {
         $this->info('Simplicity is the ultimate sophistication.');
     }
@@ -37,7 +39,7 @@ class InspiringCommand extends Command
      * @param  \Illuminate\Console\Scheduling\Schedule $schedule
      * @return void
      */
-    public function schedule(Schedule $schedule)
+    public function schedule(Schedule $schedule): void
     {
         // $schedule->command(static::class)->everyMinute();
     }
