@@ -12,11 +12,14 @@
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./app</directory>
-        </whitelist>
-    </filter>
+    <coverage cacheDirectory="vendor/cache/phpunit-coverage"
+              processUncoveredFiles="true"
+              ignoreDeprecatedCodeUnits="true"
+    >
+        <include>
+            <directory suffix=".php">app</directory>
+        </include>
+    </coverage>
     <php>
         <server name="APP_ENV" value="testing"/>
         <server name="APP_KEY" value="base64:qjbs/ydz4OpUQflRR2pfWfKX2ZN7rivFcpR3JGWQ/RI="/>

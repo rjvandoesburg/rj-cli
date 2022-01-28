@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
+use Illuminate\Foundation\Application;
 use Illuminate\Contracts\Console\Kernel;
 
 trait CreatesApplication
@@ -13,13 +14,9 @@ trait CreatesApplication
      *
      * @return \Illuminate\Foundation\Application
      */
-    public function createApplication(): \Illuminate\Foundation\Application
+    public function createApplication(): Application
     {
         $app = require __DIR__ . '/../bootstrap/app.php';
-
-        if (! file_exists($path = __DIR__ . '/../storage/framework/testing/database.sqlite')) {
-            touch($path);
-        }
 
         $app->make(Kernel::class)->bootstrap();
 

@@ -19,6 +19,10 @@ trait HotfixesSqlite
     public function hotfixSqlite(): void
     {
         Connection::resolverFor('sqlite', function ($connection, $database, $prefix, $config) {
+            if (! (file_exists($path = base_path($database)))) {
+                touch($path);
+            }
+
             return new class ($connection, $database, $prefix, $config) extends SQLiteConnection {
                 public function getSchemaBuilder()
                 {
