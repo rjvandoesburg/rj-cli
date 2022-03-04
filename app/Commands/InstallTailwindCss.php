@@ -77,9 +77,9 @@ class InstallTailwindCss extends BaseCommand
             $content = "/* eslint-disable global-require */\n{$content}";
 
             // Update purge paths and add JIT
-            $content = str_replace('purge: [],', <<<'PURGE'
+            $content = str_replace('content: [],', <<<'PURGE'
             mode: 'jit',
-              purge: [
+              content: [
                 './app/**/*.php',
                 './resources/**/*.blade.php',
                 './resources/**/*.js',
