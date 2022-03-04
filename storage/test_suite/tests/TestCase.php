@@ -17,13 +17,6 @@ abstract class TestCase extends BaseTestCase
 
     public bool $seed = true;
 
-    /**
-     * TestCase constructor.
-     *
-     * @param  null  $name
-     * @param  array  $data
-     * @param  string  $dataName
-     */
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         $this->hotfixSqlite();
@@ -31,11 +24,6 @@ abstract class TestCase extends BaseTestCase
         parent::__construct($name, $data, $dataName);
     }
 
-    /**
-     * Setup the test environment.
-     *
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
